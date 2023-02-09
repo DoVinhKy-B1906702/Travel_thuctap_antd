@@ -1,0 +1,21 @@
+.notify {
+    position: absolute;
+    right: 12px;
+    top: 0;
+   
+    
+}
+.success {
+    color: var(--white--text);
+    background: #0abde3;
+    width: 200px;
+    height: 35px;
+    padding: 4px;
+}
+.fail {
+    color:var(--white--text);
+    background: #eb2f06;
+    width: 200px;
+    height: 35px;
+    padding: 4px;
+}

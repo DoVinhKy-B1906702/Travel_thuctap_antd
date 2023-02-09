@@ -1,0 +1,53 @@
+.layout-avatar {
+    position: relative;
+    background-color: var(--white--text) ;
+    margin: 4px;
+    min-height: 525px;
+    
+}
+.layout-image {
+    max-width: 505px;
+    height: 380px;
+}
+.title-avatar {
+    text-align: center;
+    border-bottom: 1px solid var(--gray);
+    color: var(--gray) !important;
+    
+}
+
+// btn
+.btn-update-info {
+    margin-top: 12px;
+    text-align: right;
+}
+.btn-update-done {
+    margin-top: 12px;
+    text-align: right;
+}
+.btn-cancel {
+    padding: 8px 16px;
+    background: var(--red);
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: var(--white--text);
+    border-radius: 6px;
+    margin: 4px;
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    }
+}
+.btn-done {
+    padding: 8px 16px;
+    margin: 4px;
+    background: var(--green);
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: var(--white--text);
+    border-radius: 6px;
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    }
+}

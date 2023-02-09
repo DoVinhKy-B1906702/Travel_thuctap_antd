@@ -1,0 +1,24 @@
+.card {
+    min-height: 525px;
+    margin: 4px;
+}
+.title-info {
+    text-align: center;
+    border-bottom: 1px solid var(--gray);
+    color: var(--gray) !important;
+    
+}
+.list-item {
+    list-style: none;
+}
+.list-item-info {
+    font-size: 1.8rem;
+    text-align: right;
+    font-weight: 700;
+    border-bottom: 1px solid var(--gray);
+}
+// btn
+.btn-update-info {
+    margin-top: 12px;
+    text-align: right;
+}
