@@ -17,8 +17,8 @@ const Home = () => {
     console.log(currentSlide);
   };
   return (
-    <div>
-      <Row justify="center">
+    <div className={cx('layout-home')}>
+      <Row justify="center"  className={cx('layout-slide')}>
         <Col xs={20} xl={8} sm={10}>
           <Typography.Title className={cx('title-theme')}>Theme Camping</Typography.Title>
           <Carousel  afterChange={onChange}>

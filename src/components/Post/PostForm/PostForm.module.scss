@@ -1,14 +1,46 @@
+.post-form {
+    // background: var(--primary);
+    border: 1px solid var(--white--text);
+    padding: 12px;
+}
 .title-input {
     color: #333 !important;
+    width: 100%;
+    height: 30px;
+    // border-width: 1px;
+    border-color: transparent;
+    &:focus {
+        outline: none;
+    }
+    padding-left: 4px;
 }
 .content-input {
     color: #333 !important;
+    width: 100%;
+    height: 200px;   
+    outline: none;
+    border-width: 1px;
+    padding-left: 4px;
+    &:focus {
+        border: 1px solid #079992;
+    }
+}
+
+.btn-right {
+    text-align: right;
 }
 .btn-submit {
     padding: 4px;
+    margin: 5px 12px;
+    width: 100px;
     background-color: #2980b9;
     cursor: pointer;
     color: white;
     border: none;
     border-radius: 4px;
 }
+.layout-image {
+    max-width: 25vw;
+    max-height: 50vh;
+}
+

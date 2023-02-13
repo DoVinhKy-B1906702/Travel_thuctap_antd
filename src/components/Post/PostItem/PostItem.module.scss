@@ -1,9 +1,11 @@
 .layout {
     padding: 12px;
+    background: var(--background--primary--lighter);
+    border-radius: 24px;
+    margin: 10px 0;
 }
 
 .info {
-    background: #e74c3c;
     display: flex;
     padding: 12px;
 }
@@ -17,14 +19,16 @@
 }
 
 
+
+
 // post
 
-.post {
-    background: #2980b9;
-}
+// .post {
+//     background: #2980b9;
+// }
 .post-title {
     font-size: 2rem;
-    color: #8e44ad;
+    // color: #8e44ad;
     font-weight: 700;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 4px;
@@ -35,10 +39,20 @@
 .image-post {
     width: 100%;
 }
+
 .image-layout {
    
    width: 100%;
 }
 .image-center {
     text-align: center;
+}
+.title-icon {
+    margin-right: 10px;
+    color: var(--primary);
+}
+.post-icon {
+    margin-right: 12px;
+    font-size: 1.8rem;
+    color: var(--primary);
 }

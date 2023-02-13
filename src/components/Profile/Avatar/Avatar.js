@@ -49,7 +49,10 @@ const Avatar = () => {
         try {
                 const formData = new FormData();
                 formData.append('image',file);
-
+                if(!file) {
+                  console.log('xu ly loi tai day')
+                  return ;
+                }
                 
                 const response = await updateImage(formData, user._id)
                 console.log(response);
