@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import { Row, Col, Image } from 'antd';
+import { Row, Col } from 'antd';
 import classNames from 'classnames/bind'
 import styles from './PostItem.module.scss';
 
@@ -9,6 +9,7 @@ import { AuthContext } from '../../../context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faFlagCheckered, faPenSquare } from '@fortawesome/free-solid-svg-icons';
+import MyCarousel from '../../Carousel/MyCarousel';
 
 const cx = classNames.bind(styles);
 
@@ -46,11 +47,8 @@ const PostItem = ({post}) => {
            </div>
            <div className={cx('image-layout')}>
              <div  className={cx('image-center')}>
-               <Image  
-                 className={cx('image-post')}
-                 src="error"
-                 fallback={post.image}
-               />
+               <MyCarousel list={post.images}   xl='20' 
+                sm='20' />
              </div>
              
              {/* <img className={cx('image-post')} src={post.image}  alt={`hình ảnh của ${post.user.firstName}`}/> */}

@@ -7,9 +7,7 @@
     text-align: center;
     background: var(--primary)
 }
-.layout-home {
-    background: var(--background--primary);
-}
+
 .layout-slide {
     padding-top: 20px;
 }
@@ -25,13 +23,7 @@
     margin-bottom: 10px;
     font-family: cursive;
 }
-.title-theme {
-    text-align: center;
-    border-width: 6px;
-    border-style: dotted;
-    border-color: var(--white--text);
-    color: var(--white--text) !important;
-}
+
 .load-more {
     text-align: center;
     cursor: pointer;

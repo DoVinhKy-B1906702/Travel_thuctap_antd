@@ -1,6 +1,8 @@
 import { 
     POSTS_LOADED_FAIL,
-    POSTS_LOADED_SUCCESS, 
+    POSTS_LOADED_SUCCESS,
+    POSTS_PRIVATE_LOADED_SUCCESS,
+    POSTS_PRIVATE_LOADED_FAIL,
     CREATE_POST_SUCCESS, 
     DELETE_POST_SUCCESS, 
     UPDATE_POST_SUCCESS,
@@ -26,11 +28,26 @@ export const postReducer = (state, action) => {
                 posts: [],
                 postsLoading: false
             }
+        case POSTS_PRIVATE_LOADED_SUCCESS:
+             
+            return {
+                ...state,
+                postsPrivate: payload,
+                postsLoading: false
+            }
+        case POSTS_PRIVATE_LOADED_FAIL:
+             
+            return {
+                ...state,
+                postsPrivate: [],
+                postsLoading: false
+            }
         case CREATE_POST_SUCCESS:
              
             return {
                 ...state,
                 posts: [...state.posts, payload],
+                postsPrivate: [...state.postsPrivate, payload],
             }
         case DELETE_POST_SUCCESS:
             //  const newPost = state.posts;

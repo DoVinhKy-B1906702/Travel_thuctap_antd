@@ -15,6 +15,8 @@ import 'antd/dist/reset.css';
 
 import UpdateUserModal from "./components/Modal/UpdateUserModal/UpdateUserModal";
 import TestDate from "./components/Test/TestDate";
+import PostFormList from "./components/Post/PostFormList/PostFormList";
+
 
 
 
@@ -25,9 +27,13 @@ function App() {
       <Router>
               <NavbarMenu />
               <Routes>
-              <Route path='/' element={<Home />}  />
-              <Route path='/private' element={<PrivatePage />}  />
+              <Route path='/' element={<ProtectedRoute> <Home /> </ProtectedRoute> }  />
+              <Route path='/private' element={<ProtectedRoute> <PrivatePage /> </ProtectedRoute>}  />
+              {/** test Component */}
               <Route path='/testdate' element={<TestDate />}  />
+              <Route path='/testpost' element={<PostFormList />}  />
+
+
               <Route path='/update' element={<UpdateUserModal />}  />
               <Route path='/login' element={<Auth  authRoute='login' />}  />
               <Route path='/register' element={<Auth  authRoute='register' />}  />

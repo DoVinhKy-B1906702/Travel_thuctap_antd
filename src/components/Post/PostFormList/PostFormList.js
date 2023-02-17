@@ -3,19 +3,22 @@
 import React, {useState, useContext, useEffect} from 'react'
 
 import classNames from 'classnames/bind'
-import styles from './PostForm.module.scss';
+import styles from './PostFormList.module.scss';
 import { PostContext } from '../../../context/PostContext';
 
 
-import { Image, Row, Col, Typography } from 'antd';
+import { Row, Col, Typography } from 'antd';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage} from '@fortawesome/free-solid-svg-icons';
+import MyCarousel from '../../Carousel/MyCarousel';
 const cx = classNames.bind(styles);
 
-const PostForm = () => {
-    const {addPost} = useContext(PostContext);
+const PostFormList = () => {
+    const {addPostImages} = useContext(PostContext);
     
 
-    const [image, setImage] = useState(null);
-    const [ avatarDefault, setAvatarDefault] = useState(); 
+    const [image, setImage] = useState([]);
+    const [ avatarDefault, setAvatarDefault] = useState([]); 
    
     useEffect(() => {
         
@@ -28,20 +31,23 @@ const PostForm = () => {
         title:'',
         content:''
     });
+    
 
     const {title, content} = data;
 
     const handleChange = (e) => {
-      const file = e.target.files[0];
-      // console.log(file)
-      file.preview = URL.createObjectURL(file);
-      // console.log(file.preview)
-      setAvatarDefault(file.preview);
-       
-        // file.preview = URL.createObjectURL(file);
-        setImage(file);
-        // console.log(imagesArray);
+      const selectedFiles = e.target.files;
+      const selectedFilesArray = Array.from(selectedFiles);
+      const imageArray = selectedFilesArray.map( file => {
+        return URL.createObjectURL(file);
+      })
+      // file.preview = URL.createObjectURL(file);
+     
+      setAvatarDefault(imageArray);
+      setImage(selectedFiles);
+      
     }
+    
 
       const handleChangeData = (e) => {
         setData({
@@ -49,19 +55,23 @@ const PostForm = () => {
           [e.target.name]: e.target.value
         })
         console.log(e.target.value)
-      
+        
       }
+
+  
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-
             const formData = new FormData();
-            formData.append('image', image);
+            for (let a =0 ; a< image.length ; a++) {
+              formData.append('images', image[a]);
+            }
+            
             formData.append('content', content);
             formData.append('title', title);
         
-            const res =  await  addPost(formData);
+            const res =  await  addPostImages(formData);
             if (res.success) {
               setData({
                 title:'',
@@ -106,15 +116,22 @@ const PostForm = () => {
             </div>
             <div className={cx('value-item')}>
               <div>Hình ảnh</div>
-              <input onChange={handleChange} name='image' type='file'  />
+              <label htmlFor='images'>
+                  <FontAwesomeIcon className={cx('icon-upload')} icon={faImage} />
+                  Chọn hình ảnh
+              </label>
+              <input onChange={handleChange} name='images' className={cx('input-files')} type='file' id='images' multiple />
+              
             </div>
+            
+            
             <div>
               {avatarDefault &&   
-                <Image
-                  className={cx('layout-image')}
-                  src="error"
-                  fallback={avatarDefault}
-                />
+               <MyCarousel 
+                list={avatarDefault}
+                xl='20' 
+                sm='20' 
+              />
               }
             </div>
            
@@ -131,4 +148,4 @@ const PostForm = () => {
   )
 }
 
-export default PostForm
+export default PostFormList
