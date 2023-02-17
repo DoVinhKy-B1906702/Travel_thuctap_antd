@@ -14,11 +14,11 @@ import MyCarousel from '../../Carousel/MyCarousel';
 const cx = classNames.bind(styles);
 
 const PostFormList = () => {
-    const {addPostImages} = useContext(PostContext);
+    const {addPostImages, avatarDefault, setAvatarDefault} = useContext(PostContext);
     
 
     const [image, setImage] = useState([]);
-    const [ avatarDefault, setAvatarDefault] = useState([]); 
+    
    
     useEffect(() => {
         

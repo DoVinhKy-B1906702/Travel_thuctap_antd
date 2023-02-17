@@ -23,8 +23,7 @@ const PostContextProvider = ({children}) => {
         postsPrivate:[],
         postsLoading: true
     });
-    const [image, setImage] = useState([]);
-
+    const [ avatarDefault, setAvatarDefault] = useState([]); 
     const [showToast, setShowToast] = useState({
         show: false,
         message: '',
@@ -150,7 +149,7 @@ const PostContextProvider = ({children}) => {
         deletePost,
         updatePost,
         findPost,
-        image, setImage
+        avatarDefault, setAvatarDefault
         // showAddPostModal, setShowAddPostModal, 
         // showToast, setShowToast,
         // showUpdatePostModal, setShowUpdatePostModal
