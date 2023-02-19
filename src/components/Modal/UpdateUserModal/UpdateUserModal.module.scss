@@ -1,18 +1,27 @@
 .layout {
     background: rgba(0, 0, 0, 0.9);
     position: fixed;
+    top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
+    z-index: 100;
   
 }
 .modal {
     background: var(--white--text);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    padding: 32px;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%,-50%);
+    padding: 36px;
+    margin-bottom: 40px;
     
+}
+.title-update {
+    font-size: 2rem;
+    text-align: center;
+    font-family: 700;
+    border-bottom: 1px solid var(--background--primary);
 }
 .btn-login {
     text-align: right;
@@ -44,5 +53,7 @@
 @media only screen and (min-width: 320px) and (max-width: 420px){
     .modal {
         width: 80vw;
+        height: 100%;
+        padding: 0;
     }
 }

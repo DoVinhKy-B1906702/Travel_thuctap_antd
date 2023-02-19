@@ -6,6 +6,7 @@ import styles from './PrivatePage.module.scss';
 
 import PostListPrivate from '../../components/Post/PostListPrivate/PostListPrivate';
 import PostFormList from '../../components/Post/PostFormList/PostFormList';
+import { Typography } from 'antd';
 
 
 const cx = classNames.bind(styles);
@@ -17,7 +18,14 @@ const PrivatePage = () => {
   return (
     
         <div className={cx('layout-private')}>
-            <PostFormList />
+            <div className={cx('title-private')}>
+              <Typography.Title className={cx('title')}>Trang cá nhân</Typography.Title>
+            </div>
+            
+            <div className={cx('post-form')}>
+              <PostFormList />
+            </div>
+            
             <PostListPrivate />
         </div>
        

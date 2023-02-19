@@ -46,7 +46,7 @@ export const postReducer = (state, action) => {
              
             return {
                 ...state,
-                posts: [...state.posts, payload],
+                posts: [payload, ...state.posts],
                 postsPrivate: [...state.postsPrivate, payload],
             }
         case DELETE_POST_SUCCESS:

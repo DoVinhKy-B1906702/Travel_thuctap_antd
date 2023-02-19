@@ -9,6 +9,8 @@
 }
 .layout-home {
     background: var(--background--primary);
+    padding-top: 100px;
+    padding-bottom: 20px;
 }
 .layout-slide {
     padding-top: 20px;
@@ -42,10 +44,14 @@
         color: var(--white--text);
     }
 }
-.slide-number {
-    height: 12px;
-    margin-bottom: 15px;
-    text-align: right;
+// .slide-number {
+//     height: 12px;
+//     margin-bottom: 15px;
+//     text-align: right;
+// }
+.form-post {
+    // background: var(--background--primary--lighter);
+    padding: 10px 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 420px){
     .layout-card {

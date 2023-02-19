@@ -10,11 +10,11 @@ import Info from '../../components/Profile/Info/Info';
 import Avatar from '../../components/Profile/Avatar/Avatar';
 
 import UpdateUserModal from '../../components/Modal/UpdateUserModal/UpdateUserModal';
-import Notify from '../../components/Notify/Notify';
+
 const cx = classNames.bind(styles);
 
 const Profile = () => {
-const {showModalUpdateUser, showNotifyUpdate} = useContext(AuthContext);
+const {showModalUpdateUser} = useContext(AuthContext);
  
 
   return (
@@ -28,7 +28,7 @@ const {showModalUpdateUser, showNotifyUpdate} = useContext(AuthContext);
         <Avatar />
     </Col>
     {showModalUpdateUser && <UpdateUserModal />}
-    {showNotifyUpdate && <Notify display={showNotifyUpdate} type={true} text='Cập nhật thành công' />}
+   
     </Row>
   )
 }

@@ -1,17 +1,15 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import { Row, Col, Typography, Carousel, Card, Image} from 'antd'
 import classNames from 'classnames/bind'
 import styles from './MyCarousel.module.scss';
 
-import { PostContext } from '../../context/PostContext';
+
 
 const cx = classNames.bind(styles);
 
 
 const MyCarousel = ({list, xs, xl, sm}) => {
    
-  
-  
 
   // const onChange = (currentSlide) => {
   //   console.log(currentSlide);
@@ -20,7 +18,7 @@ const MyCarousel = ({list, xs, xl, sm}) => {
   return (
     <Row justify="center"  className={cx('layout-slide')}>
         <Col xs={xs ? xs : 20} xl={xl ? xl : 8} sm={sm ? sm : 10}>
-          <Carousel effect='fade'  autoplay>
+          <Carousel effect='fade'>
            {list.map((item, index)  => (
                 <Card key={index} className={cx('layout-card')} >
                    

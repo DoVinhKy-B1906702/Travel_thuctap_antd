@@ -17,7 +17,7 @@ const AuthContextProvider = ({children}) => {
     });
     const [showModalUpdateUser, setShowModalUpdateUser] = useState(false);
     const [showUpdateAvatar, setShowUpdateAvatar] = useState(false);
-    const [showNotifyUpdate, setShowNotifyUpdate] = useState(false);
+   
     // Check Authenticate user
     const loadUser = async () => {
         if(localStorage[LOCAL_STORAGE_TOKEN_NAME]) {
@@ -155,8 +155,7 @@ const AuthContextProvider = ({children}) => {
         loginUser, authState, registerUser, logOutUser,
         updateUser,updateImage,
         showModalUpdateUser, setShowModalUpdateUser,
-        showUpdateAvatar, setShowUpdateAvatar,
-        showNotifyUpdate, setShowNotifyUpdate
+        showUpdateAvatar, setShowUpdateAvatar
     }
 
 

@@ -17,7 +17,7 @@ const NavbarMenu = () => {
 
 
   return (
-    <div>
+    <div className={cx('header-navbar-menu')}>
        {isAuthenticated ? <NavbarMenuUser /> : <NavbarMenuWithoutUser />
        }
 

@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFlagCheckered, faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import MyCarousel from '../../Carousel/MyCarousel';
 
+
 const cx = classNames.bind(styles);
 
 const PostItem = ({post}) => {
@@ -39,6 +40,7 @@ const PostItem = ({post}) => {
              <div className={cx('post-title')}>
                 <FontAwesomeIcon icon={faFlagCheckered} className={cx('title-icon')} />
                {post.title}
+               
              </div>
              <div className={cx('post-content')}>
                 <FontAwesomeIcon icon={faPenSquare} className={cx('post-icon')} />

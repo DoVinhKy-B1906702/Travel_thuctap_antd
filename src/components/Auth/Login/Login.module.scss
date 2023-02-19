@@ -7,6 +7,7 @@
     background-size: cover;
     filter: blur(3);
     margin-top: 20px;
+    padding-bottom: 100px;
 }
 .layout-background {
     background-image: url('../../../assets/snowbg.jpg');
@@ -27,6 +28,7 @@
     transform: translate(-50%, -50%);
 }
 .btn-login {
+    margin-top: 10px;
     text-align: center;
 }
 .redirect-text {

@@ -6,13 +6,13 @@ import styles from './UpdateUserModal.module.scss';
 
 import { AuthContext } from '../../../context/AuthContext';
 
-import {Form, Input, Button, Typography, Select, Card} from 'antd';
+import {Form, Input, Button, Select, Card, message, Row, Col} from 'antd';
 
 
 const cx = classNames.bind(styles);
 
 const UpdateUserModal = () => {
-    const {authState: {user},  setShowModalUpdateUser, updateUser,setShowNotifyUpdate } = useContext(AuthContext);
+    const {authState: {user},  setShowModalUpdateUser, updateUser } = useContext(AuthContext);
 
     
 
@@ -24,10 +24,7 @@ const UpdateUserModal = () => {
       const response = await updateUser(values);
       if (response.success) {
         handleCloseModal();
-        setShowNotifyUpdate(true);
-        setTimeout(() => {
-          setShowNotifyUpdate(false);
-        }, 5000 )
+        message.success('Đã cập nhật thành công !!!')
       } 
 
      
@@ -35,13 +32,14 @@ const UpdateUserModal = () => {
     }
 
     const updateModal = (
-        
-    <Form onFinish={onFinish} layout='vertical' className={cx('modal')}>
+        <Row justify='center'>
+          <Col xs={24} xl={12} sm={12} >
+            <Form onFinish={onFinish} layout='vertical' className={cx('modal')}>
         <div onClick={handleCloseModal} className={cx('layout-cancel')}>
           <button className={cx('btn-x')}>x</button>
         </div>
         
-        <Typography.Title >Chỉnh sửa thông tin</Typography.Title>
+        <div className={cx('title-update')} >Chỉnh sửa thông tin</div>
         <Form.Item 
             label='Tên của bạn' 
             name='firstName'
@@ -142,7 +140,11 @@ const UpdateUserModal = () => {
             <Button type='primary' htmlType='submit' >Xong</Button>
         </Form.Item>
         
-  </Form>
+            </Form>
+          </Col>
+           
+        </Row>
+   
 
     )
   return (

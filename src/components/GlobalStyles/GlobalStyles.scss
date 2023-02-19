@@ -9,11 +9,14 @@
     --background--primary--lighter: #414346;
     --gray:#b2bec3; 
     --red:#d63031;
+    --blue: #1677ff;
     --green: #4cd137;
     //text color
     --white--text: #fff;
     --black--text: #000;
 
+    // btn
+    
 
     //modal
     --modal: rgba(0, 0,0, 0.6);
@@ -41,6 +44,10 @@ body {
     color: var(--white--text);
 
 }
+button {
+    background-color: var(--primary--background);
+    border: none;
+}
 .warning {
     // background-color: #f39c12;
     background-color: red;
@@ -57,3 +64,4 @@ body {
     border-radius: 2px;
     color:white;
 }
+

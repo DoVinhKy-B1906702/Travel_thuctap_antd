@@ -7,10 +7,11 @@ import styles from './PostFormList.module.scss';
 import { PostContext } from '../../../context/PostContext';
 
 
-import { Row, Col, Typography } from 'antd';
+import { Row, Col, Typography, message } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage} from '@fortawesome/free-solid-svg-icons';
 import MyCarousel from '../../Carousel/MyCarousel';
+import ButtonAnimate from '../../ButtonAnimate/ButtonAnimate';
 const cx = classNames.bind(styles);
 
 const PostFormList = () => {
@@ -63,6 +64,10 @@ const PostFormList = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            if ( !title || !content) {
+              message.error('vui lòng nhập nội dung!!');
+              return;
+            }
             const formData = new FormData();
             for (let a =0 ; a< image.length ; a++) {
               formData.append('images', image[a]);
@@ -79,6 +84,7 @@ const PostFormList = () => {
               });
               setImage(null);
               setAvatarDefault('');
+              message.success('Bài viết đã được đăng !!!')
             }
             console.log(res)
         } catch (error) {
@@ -136,7 +142,10 @@ const PostFormList = () => {
             </div>
            
             <div className={cx('btn-right')}>
-              <button type='submit' className={cx('btn-submit')} onClick={handleSubmit} >Đăng</button>
+              
+              <button type='submit' className={cx('btn-submit')} onClick={handleSubmit} >
+                Đăng
+              </button>
             </div>
             
         </form>

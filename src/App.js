@@ -16,7 +16,7 @@ import 'antd/dist/reset.css';
 import UpdateUserModal from "./components/Modal/UpdateUserModal/UpdateUserModal";
 import TestDate from "./components/Test/TestDate";
 import PostFormList from "./components/Post/PostFormList/PostFormList";
-
+import Footer from "./components/Footer/Footer";
 
 
 
@@ -41,7 +41,7 @@ function App() {
               <Route path='/profile' element={<ProtectedRoute> <Profile /> </ProtectedRoute>} />
                 {/* <Route path='/about' element={<ProtectedRoute> <About /> </ProtectedRoute>} /> */}
               </Routes> 
-            
+              <Footer />
         </Router>
       </PostContextProvider>
         
