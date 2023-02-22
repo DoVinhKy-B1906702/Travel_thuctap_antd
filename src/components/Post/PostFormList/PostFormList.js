@@ -7,11 +7,13 @@ import styles from './PostFormList.module.scss';
 import { PostContext } from '../../../context/PostContext';
 
 
-import { Row, Col, Typography, message } from 'antd';
+import { Row, Col, Typography, message, Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage} from '@fortawesome/free-solid-svg-icons';
 import MyCarousel from '../../Carousel/MyCarousel';
 import ButtonAnimate from '../../ButtonAnimate/ButtonAnimate';
+
+
 const cx = classNames.bind(styles);
 
 const PostFormList = () => {
@@ -91,12 +93,26 @@ const PostFormList = () => {
             console.log(error)
         }
     }
+
+    const handleClearImage = () => {
+      if( avatarDefault) {
+          setImage(null);
+          setAvatarDefault('');
+          message.success('Đã clear thành công !!!')
+          return;
+      }
+      message.info('không có hình ảnh nào !!!')
+          
+    }
   return (
     <Row justify='center'>
       <Col xs={20} xl={8} sm={10}>
       <div className={cx('post-form')}>
         <form encType='multipart/form-data' >
-            <Typography.Title className={cx('title-form')}>Tạo bài viết</Typography.Title>
+            
+
+              <Typography.Title className={cx('title-form')}>Tạo bài viết</Typography.Title>
+          
             <div className={cx('value-item')}>
               <label className={cx('title')} htmlFor='title'>Tiêu đề</label>
               <input 
@@ -122,6 +138,7 @@ const PostFormList = () => {
             </div>
             <div className={cx('value-item')}>
               <div>Hình ảnh</div>
+              
               <label htmlFor='images'>
                   <FontAwesomeIcon className={cx('icon-upload')} icon={faImage} />
                   Chọn hình ảnh
@@ -142,10 +159,16 @@ const PostFormList = () => {
             </div>
            
             <div className={cx('btn-right')}>
-              
-              <button type='submit' className={cx('btn-submit')} onClick={handleSubmit} >
+              <div style={{marginBottom:'5px'}}>
+                <Button onClick={handleClearImage} type='dashed'>Clear hình ảnh</Button>              
+                </div>
+              <div>
+               
+                <ButtonAnimate text='Đăng' onClick={handleSubmit} />
+              </div>
+              {/* <button type='submit' className={cx('btn-submit')} onClick={handleSubmit} >
                 Đăng
-              </button>
+              </button> */}
             </div>
             
         </form>

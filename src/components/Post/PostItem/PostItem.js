@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import { Row, Col } from 'antd';
+import { Row, Col, Tooltip } from 'antd';
 import classNames from 'classnames/bind'
 import styles from './PostItem.module.scss';
 
@@ -10,12 +10,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faFlagCheckered, faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import MyCarousel from '../../Carousel/MyCarousel';
+import CardUser from '../../CardUser/CardUser';
 
 
 const cx = classNames.bind(styles);
 
 const PostItem = ({post}) => {
-  const {authState: {user}} = useContext(AuthContext)
+  const {authState: {user}} = useContext(AuthContext);
+  
   return (
     <div >
       <Row justify="center">
@@ -28,7 +30,10 @@ const PostItem = ({post}) => {
          </div>
          <div>
            <div className={cx('info-name')}>
-             {post.user.firstName ? `${post.user.firstName} ${post.user.lastName}` : `${user.firstName} ${user.lastName}` }
+              <Tooltip autoAdjustOverflow arrow overlayClassName={cx('overlay-tooltip')} color='#414346' title={<CardUser info={post} />}>
+                {post.user.firstName ? `${post.user.firstName} ${post.user.lastName}` : `${user.firstName} ${user.lastName}` }
+              </Tooltip>
+             
            </div>
            <div className={cx('info-time')}>
              {moment(post.createdAt).format('LLL')}
@@ -47,14 +52,17 @@ const PostItem = ({post}) => {
                 {post.content}
              </div>
            </div>
+           {post.images.length > 0 && 
            <div className={cx('image-layout')}>
-             <div  className={cx('image-center')}>
-               <MyCarousel list={post.images}   xl='20' 
-                sm='20' />
-             </div>
-             
-             {/* <img className={cx('image-post')} src={post.image}  alt={`hình ảnh của ${post.user.firstName}`}/> */}
+           <div  className={cx('image-center')}>
+             <MyCarousel list={post.images}   xl='20' 
+              sm='20' />
            </div>
+           
+           {/* <img className={cx('image-post')} src={post.image}  alt={`hình ảnh của ${post.user.firstName}`}/> */}
+         </div>
+           }
+           
          </div>
        </div>
        </Col>

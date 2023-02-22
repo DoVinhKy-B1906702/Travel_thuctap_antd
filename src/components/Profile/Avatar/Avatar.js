@@ -58,6 +58,7 @@ const Avatar = () => {
                 if(!file) {
                   console.log('xu ly loi tai day');
                   setShowAlert(true);
+                  
                   setShowDescription({
                     type: 'info',
                     message: 'Không có gì để cập nhật !!',
@@ -73,6 +74,7 @@ const Avatar = () => {
                 console.log(response);
                 if (response.success) {
                     setShowAlert(true);
+                    setFile(null)
                     setShowDescription({
                       type: 'success',
                       message: 'Đã cập nhật thành công',

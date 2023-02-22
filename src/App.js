@@ -15,8 +15,11 @@ import 'antd/dist/reset.css';
 
 import UpdateUserModal from "./components/Modal/UpdateUserModal/UpdateUserModal";
 import TestDate from "./components/Test/TestDate";
-import PostFormList from "./components/Post/PostFormList/PostFormList";
+
 import Footer from "./components/Footer/Footer";
+import TestButton from "./components/Test/TestButton";
+import PageNotFound from "./views/PageNotFound/PageNotFound";
+import ProfilePublic from "./components/ProfilePublic/ProfilePublic";
 
 
 
@@ -31,14 +34,17 @@ function App() {
               <Route path='/private' element={<ProtectedRoute> <PrivatePage /> </ProtectedRoute>}  />
               {/** test Component */}
               <Route path='/testdate' element={<TestDate />}  />
-              <Route path='/testpost' element={<PostFormList />}  />
-
+              <Route path='/testbtn' element={<TestButton />}  />
+              
 
               <Route path='/update' element={<UpdateUserModal />}  />
               <Route path='/login' element={<Auth  authRoute='login' />}  />
               <Route path='/register' element={<Auth  authRoute='register' />}  />
                
+
               <Route path='/profile' element={<ProtectedRoute> <Profile /> </ProtectedRoute>} />
+              <Route path='/:searchId' element={<ProfilePublic /> }  />
+              <Route path='*' element={<PageNotFound />}  />
                 {/* <Route path='/about' element={<ProtectedRoute> <About /> </ProtectedRoute>} /> */}
               </Routes> 
               <Footer />

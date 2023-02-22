@@ -8,6 +8,7 @@ import styles from './Info.module.scss';
 
 
 
+
 const cx = classNames.bind(styles);
 
 const Info = () => {
@@ -31,6 +32,10 @@ const Info = () => {
                    <div className={cx('list-item-info')}>{user.lastName}</div> 
                 </li>
                 <li className={cx('list-item')}>
+                    <div>yourID:</div>
+                    <div className={cx('list-item-info')}>{user.yourId}</div>
+                </li>
+                <li className={cx('list-item')}>
                     <div>Email:</div>
                     <div className={cx('list-item-info')}>{user.email}</div>
                 </li>
@@ -47,6 +52,7 @@ const Info = () => {
                     <div className={cx('list-item-info')}>{user.gender ? 'Nam' : 'Nữ'}</div>
                 </li>
                 <div className={cx('btn-update-info')}>
+                   
                     <Button onClick={handleOpenUpdateModal} type='primary' >Chỉnh sửa thông tin</Button>
                 </div>
                 

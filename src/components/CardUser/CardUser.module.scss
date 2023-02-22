@@ -1,0 +1,20 @@
+.layout-card {
+    background: var(--background--primary--lighter);
+    padding: 12px;
+    width: 100%;
+}
+
+.icon-gender-male, .icon-gender-female {
+    font-size: 2rem;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+.icon-gender-male {
+    color: var(--blue);
+}
+.icon-gender-female {
+    color: var(--pink);
+}
+.btn-link {
+    text-align: right;
+}

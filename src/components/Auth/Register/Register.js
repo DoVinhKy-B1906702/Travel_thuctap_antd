@@ -92,6 +92,7 @@ const Register = () => {
                   placeholder='Enter your username.....'
                 />
               </Form.Item>
+            
               <Form.Item 
                 label='Mật khẩu'
                 name='password'

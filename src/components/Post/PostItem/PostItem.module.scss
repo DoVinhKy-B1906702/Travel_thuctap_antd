@@ -17,6 +17,13 @@
 .info-name, .info-time {
     margin: 4px;
 }
+.info-name {
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    &:hover {
+        border-bottom: 1px solid var(--white--text);
+    }
+}
 
 
 
@@ -55,4 +62,7 @@
     margin-right: 12px;
     font-size: 1.8rem;
     color: var(--primary);
+}
+.overlay-tooltip {
+    background: transparent;
 }
