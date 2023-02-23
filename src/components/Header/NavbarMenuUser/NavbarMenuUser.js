@@ -68,7 +68,7 @@ function AppMenu({isInline=false}) {
                 },
                 {
                     label:'Trang cá nhân',
-                    key:`/${user._id}`,
+                    key:`/${user.yourId}`,
                     icon: <UserOutlined />
                 },
                 {

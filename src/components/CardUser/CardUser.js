@@ -37,7 +37,7 @@ const CardUser = ({info}) => {
         }
         </div>
         <div className={cx('btn-link')}>
-            <Link to={`/${info.user._id}`}>
+            <Link to={`/${info.user.yourId}`}>
                 <Button type='primary'>Xem trang cá nhân</Button>
             </Link>
         </div>

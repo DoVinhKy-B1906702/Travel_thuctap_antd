@@ -13,6 +13,7 @@ import MyCarousel from '../../Carousel/MyCarousel';
 import CardUser from '../../CardUser/CardUser';
 import CommentsList from '../../Comments/CommentsList/CommentsList';
 import CommentForm from '../../Comments/CommentForm/CommentForm';
+import LikeForm from '../../Like/LikeForm/LikeForm';
 
 const cx = classNames.bind(styles);
 
@@ -63,6 +64,9 @@ const PostItem = ({post}) => {
            {/* <img className={cx('image-post')} src={post.image}  alt={`hình ảnh của ${post.user.firstName}`}/> */}
          </div>
            }
+           <div>
+              <LikeForm postId={post._id} />
+           </div>
            <div>
             <CommentsList listComments={post.comments} />
            </div>

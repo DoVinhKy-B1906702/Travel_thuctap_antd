@@ -29,7 +29,7 @@ const ProfilePublic = () => {
     useEffect(() => {
         async function fetchAPIUser() {
             try {
-                const res = await axios.get(`${API}/search/searchID?id=${searchId}`);
+                const res = await axios.get(`${API}/search/searchyourID?q=${searchId}`);
                 console.log(res);
                     setInfo(res.data.user);
                     setLengthComment(res.data.posts)
