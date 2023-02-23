@@ -1,0 +1,35 @@
+.background-heart {
+    padding: 4px; 
+    margin: 5px 0;
+    
+}
+.total-likes {
+    padding: 4px;
+    border-bottom: 1px solid var(--white--text);
+}
+.no-heart-btn {
+    font-size: 2rem;
+    padding: 8px;
+    border-radius: 24px;
+    // background: var(--pink);
+    cursor: pointer;
+    transition: transform .2s;
+    &:hover {
+        -ms-transform: scale(1.5); /* IE 9 */
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+}
+.heart-btn {
+    font-size: 2rem;
+    padding: 8px;
+    border-radius: 24px;
+    background: var(--pink);
+    cursor: pointer;
+    transition: transform .2s;
+    &:hover {
+        -ms-transform: scale(1.5); /* IE 9 */
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+}

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import classNames from 'classnames/bind'
 import styles from './LikeForm.module.scss';
-import { Button, message } from 'antd';
-import { LikeOutlined } from '@ant-design/icons';
+import { message } from 'antd';
+import Icon ,{ HeartFilled } from '@ant-design/icons';
 import { API } from '../../../context/constanst';
 import { AuthContext } from '../../../context/AuthContext';
 import axios from 'axios';
@@ -13,7 +13,7 @@ const LikeForm = ({postId}) => {
     const {authState: {user}} = useContext(AuthContext);
     
     const [allLikes, setAllLikes] = useState([]);
-    const [statusLiked ,setStatusLiked] = useState(undefined) ;
+    const [statusLiked ,setStatusLiked] = useState(false);
     const onFinish = async () => {
         try {
             console.log('success', postId);
@@ -22,9 +22,11 @@ const LikeForm = ({postId}) => {
             if(res.data.success) {
                 setAllLikes((prev) => [...prev, res.data.like]);
                 message.success('Liked !!!!')
+                setStatusLiked(true);
             }
             else {
                 setAllLikes(() => allLikes.filter(like => like._id !== res.data.like._id ));
+                setStatusLiked(false)
                 message.info('unLiked !!!!')
             }
         } catch (error) {
@@ -39,7 +41,8 @@ const LikeForm = ({postId}) => {
             try {
                 const respon = await axios.get(`${API}/like/get?post=${postId}`) 
                 if(respon.data.success) {
-                    setAllLikes(respon.data.like)
+                    setAllLikes(respon.data.like);
+                    setStatusLiked(() => respon.data.like.find(like => like.user._id === user._id ))
                 }
             } catch (error) {
                 console.log(error)
@@ -48,17 +51,24 @@ const LikeForm = ({postId}) => {
         }
         
         getAllLikes();
-    //    if (respon.data.success) {
-    //        setAllLikes(respon.data.like);
-    //    }
+   
     
     },[])
-    // const find = allLikes.find(like => like.user === user._id);
-    // setStatusLiked(find);
+    
+    
+    // setStatusLiked(status)
+    // console.log(status);
+
+    // setStatusLiked(() => allLikes.some(like => like.user._id === user._id ));
+   
   return (
     <div>
-        <div>{allLikes.length}</div>
-        <Button type={statusLiked ? 'primary' : 'dashed'} onClick={onFinish} ><LikeOutlined /></Button>
+        <div className={cx('total-likes')}>
+           <span >{allLikes.length}</span> 
+        </div>
+        <div className={cx('background-heart')} >
+           <Icon  onClick={onFinish} className={statusLiked ? cx('heart-btn') : cx('no-heart-btn')}   component={HeartFilled} />
+        </div>
     </div>
   )
 }

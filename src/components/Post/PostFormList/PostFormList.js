@@ -159,7 +159,7 @@ const PostFormList = () => {
             </div>
            
             <div className={cx('btn-right')}>
-              <div style={{marginBottom:'5px'}}>
+              <div style={{margin:'20px 0px 0px 5px'}}>
                 <Button onClick={handleClearImage} type='dashed'>Clear hình ảnh</Button>              
                 </div>
               <div>
