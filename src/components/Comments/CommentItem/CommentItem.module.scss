@@ -1,0 +1,40 @@
+.info {
+    display: flex;
+    margin: 10px 0;
+}
+.info-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin-right: 4px;
+}
+.info-name, .info-time, .comment-text {
+    margin: 4px;
+}
+.info-name {
+    cursor: pointer;
+    font-size: 2rem;
+    font-family: 800;
+    &:hover {
+        color: var(--blue);
+    }
+}
+.icon-gender-male, .icon-gender-female {
+    margin-left: 6px;
+}
+.icon-gender-male {
+    color: var(--blue);
+}
+.icon-gender-female {
+    color: var(--pink);
+}
+
+// comment 
+.comment-text {
+    word-wrap: break-word;
+    max-width: 35vw;
+}
+.comment-layout {
+    background: var(--carousel);
+    border-radius: 10px;
+}

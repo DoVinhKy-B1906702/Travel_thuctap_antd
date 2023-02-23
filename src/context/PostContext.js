@@ -8,7 +8,7 @@ import axios from 'axios';
 import { AuthContext } from './AuthContext';
 //const type
 import { POSTS_LOADED_FAIL, POSTS_LOADED_SUCCESS, POSTS_PRIVATE_LOADED_SUCCESS,
-    POSTS_PRIVATE_LOADED_FAIL, CREATE_POST_SUCCESS, DELETE_POST_SUCCESS, UPDATE_POST_SUCCESS, FIND_POST} from './constanst';
+    POSTS_PRIVATE_LOADED_FAIL, CREATE_POST_SUCCESS, DELETE_POST_SUCCESS, UPDATE_POST_SUCCESS, FIND_POST, POST_COMMENT} from './constanst';
 
 export const  PostContext = createContext();
 
@@ -44,10 +44,10 @@ const PostContextProvider = ({children}) => {
             dispatch({ type: POSTS_LOADED_FAIL })
         }
     }
-    // Get all posts
-    const getPostsPrivate = async () => {
+    // Get all posts private
+    const getPostsPrivate = async (id) => {
         try {
-            const response = await axios.get(`${API}/posts/${user._id}`)
+            const response = await axios.get(`${API}/posts/${id}`)
             if (response.data.success) {
                 dispatch({
                     type: POSTS_PRIVATE_LOADED_SUCCESS,
@@ -137,11 +137,30 @@ const PostContextProvider = ({children}) => {
             : { success: false, message: 'Server error' }
         }
     }
-    //
+    // Comment a post
+    const postComment = async (values, id) => {
+        try {
+            const response = await axios.put(`${API}/posts/comment/${id}`, values)
+            if (response.data.success) {
+                dispatch({
+                    type:POST_COMMENT,
+                    payload: response.data.post
+                })
+                return response.data
+            }
+        } catch (error) {
+            return error.response.data
+            ? error.response.data
+            : { success: false, message: 'Server error' }
+        }
+    }
+    
+    
 
     // Post Context Data
     const postContextData = {
         postState,
+        dispatch,
         getPosts,
         getPostsPrivate,
         addPost,
@@ -149,6 +168,7 @@ const PostContextProvider = ({children}) => {
         deletePost,
         updatePost,
         findPost,
+        postComment,
         avatarDefault, setAvatarDefault
         // showAddPostModal, setShowAddPostModal, 
         // showToast, setShowToast,

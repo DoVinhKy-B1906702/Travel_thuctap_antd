@@ -10,7 +10,7 @@ import ProtectedRoute from "./components/routing/ProtectedRoute";
 
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Profile from "./views/Profile/Profile";
-import PrivatePage from "./views/PrivatePage/PrivatePage";
+
 import 'antd/dist/reset.css';
 
 import UpdateUserModal from "./components/Modal/UpdateUserModal/UpdateUserModal";
@@ -31,7 +31,7 @@ function App() {
               <NavbarMenu />
               <Routes>
               <Route path='/' element={<ProtectedRoute> <Home /> </ProtectedRoute> }  />
-              <Route path='/private' element={<ProtectedRoute> <PrivatePage /> </ProtectedRoute>}  />
+              {/* <Route path='/private' element={<ProtectedRoute> <PrivatePage /> </ProtectedRoute>}  /> */}
               {/** test Component */}
               <Route path='/testdate' element={<TestDate />}  />
               <Route path='/testbtn' element={<TestButton />}  />
@@ -43,7 +43,7 @@ function App() {
                
 
               <Route path='/profile' element={<ProtectedRoute> <Profile /> </ProtectedRoute>} />
-              <Route path='/:searchId' element={<ProfilePublic /> }  />
+              <Route path='/:searchId' element={<ProtectedRoute><ProfilePublic /></ProtectedRoute>  }  />
               <Route path='*' element={<PageNotFound />}  />
                 {/* <Route path='/about' element={<ProtectedRoute> <About /> </ProtectedRoute>} /> */}
               </Routes> 

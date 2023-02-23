@@ -5,6 +5,7 @@ import { Drawer, Menu } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import { HomeOutlined, LoginOutlined, PlusCircleOutlined } from '@ant-design/icons';
 
 
 
@@ -53,15 +54,18 @@ function AppMenu({isInline=false}) {
             items={[
                 {
                     label:'Trang chủ',
-                    key:'/'
+                    key:'/',
+                    icon: <HomeOutlined />
                    },
                    {
                     label:'Đăng nhập',
-                    key:'/login'
+                    key:'/login',
+                    icon: <LoginOutlined />
                    },
                    {
                     label:'Đăng Ký',
-                    key:'/register'
+                    key:'/register',
+                    icon: <PlusCircleOutlined />
                    }
                
             ]}

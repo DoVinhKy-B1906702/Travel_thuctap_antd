@@ -10,14 +10,19 @@ import { Row,Col, Image, message } from 'antd';
 
 // import PageNotFound from '../../views/PageNotFound/PageNotFound';
 import { AuthContext } from '../../context/AuthContext';
+import { PostContext } from '../../context/PostContext';
 import PostFormList from '../Post/PostFormList/PostFormList';
+import {POSTS_PRIVATE_LOADED_SUCCESS, POSTS_PRIVATE_LOADED_FAIL} from '../../context/constanst';
+import PostListPrivate from '../Post/PostListPrivate/PostListPrivate';
 
 const cx = classNames.bind(styles);
 const ProfilePublic = () => {
     const {searchId} = useParams();  
-    const {authState: {user}} = useContext(AuthContext)
+    const {authState: {user}} = useContext(AuthContext);
+    const {dispatch} = useContext(PostContext)
 
     const [info, setInfo] = useState({});
+    const [lengthComment, setLengthComment] = useState({});
     
 
   
@@ -27,8 +32,18 @@ const ProfilePublic = () => {
                 const res = await axios.get(`${API}/search/searchID?id=${searchId}`);
                 console.log(res);
                     setInfo(res.data.user);
+                    setLengthComment(res.data.posts)
                     message.success('Done!')
-                
+                if(res.data.success) {
+                    dispatch({
+                        type: POSTS_PRIVATE_LOADED_SUCCESS,
+                        payload: res.data.posts
+                    })
+                } else {
+                    dispatch({
+                        type: POSTS_PRIVATE_LOADED_FAIL
+                    })
+                }
                     
                 
             } catch (error) {
@@ -37,7 +52,7 @@ const ProfilePublic = () => {
            
         }
         fetchAPIUser();
-    },[searchId])
+    },[searchId, dispatch])
 
     // const body = (
     //     <div></div>
@@ -51,6 +66,7 @@ const ProfilePublic = () => {
                     fallback={info.image}
                 />
                 <div>{info.firstName} {info.lastName}</div>
+                <div>Có {lengthComment.length} bài viết</div>
             </Col>
         </Row>
         {(info._id === user._id) &&
@@ -59,7 +75,7 @@ const ProfilePublic = () => {
             </div>
 
         }
-        
+        <PostListPrivate />
     
        
     </div>

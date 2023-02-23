@@ -13,7 +13,7 @@ import PostFormList from '../../components/Post/PostFormList/PostFormList';
 const cx = classNames.bind(styles);
 const Home = () => {
   const { postState: {posts}} = useContext(PostContext);
-  const [limit, setLimit] = useState(2);
+  const [limit, setLimit] = useState(4);
   
  
 

@@ -23,10 +23,10 @@ const PrivatePage = () => {
             </div>
             
             <div className={cx('post-form')}>
-              <PostFormList />
+              {/* <PostFormList /> */}
             </div>
             
-            <PostListPrivate />
+            {/* <PostListPrivate /> */}
         </div>
        
   )

@@ -6,7 +6,8 @@ import {
     CREATE_POST_SUCCESS, 
     DELETE_POST_SUCCESS, 
     UPDATE_POST_SUCCESS,
-    FIND_POST
+    FIND_POST,
+    POST_COMMENT
 } from '../context/constanst';
 
 
@@ -47,7 +48,7 @@ export const postReducer = (state, action) => {
             return {
                 ...state,
                 posts: [payload, ...state.posts],
-                postsPrivate: [...state.postsPrivate, payload],
+                postsPrivate: [payload ,...state.postsPrivate],
             }
         case DELETE_POST_SUCCESS:
             //  const newPost = state.posts;
@@ -68,7 +69,19 @@ export const postReducer = (state, action) => {
             return {
                 ...state,
                 posts: newPosts
-                }
+            }
+        case POST_COMMENT: 
+            const newComment = state.posts.map(post => 
+            post._id === payload._id ? payload : post
+           );
+           const newCommentProfile = state.postsPrivate.map(post => 
+            post._id === payload._id ? payload : post
+           )
+            return {
+                ...state,
+                posts: newComment,
+                postsPrivate: newCommentProfile
+            }
         default:
             return state
     }

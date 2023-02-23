@@ -11,7 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFlagCheckered, faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import MyCarousel from '../../Carousel/MyCarousel';
 import CardUser from '../../CardUser/CardUser';
-
+import CommentsList from '../../Comments/CommentsList/CommentsList';
+import CommentForm from '../../Comments/CommentForm/CommentForm';
 
 const cx = classNames.bind(styles);
 
@@ -62,7 +63,10 @@ const PostItem = ({post}) => {
            {/* <img className={cx('image-post')} src={post.image}  alt={`hình ảnh của ${post.user.firstName}`}/> */}
          </div>
            }
-           
+           <div>
+            <CommentsList listComments={post.comments} />
+           </div>
+           <CommentForm id={post._id} />
          </div>
        </div>
        </Col>

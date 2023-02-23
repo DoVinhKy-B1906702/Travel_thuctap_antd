@@ -7,6 +7,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../../context/AuthContext';
+import { HomeOutlined, LogoutOutlined, ProfileOutlined, UserOutlined } from '@ant-design/icons';
 
 
 const cx = classNames.bind(styles);
@@ -42,7 +43,7 @@ const NavbarMenuUser = () => {
 }
 
 function AppMenu({isInline=false}) {
-    const {logOutUser} = useContext(AuthContext)
+    const {logOutUser, authState: {user}} = useContext(AuthContext)
     return (
         <Menu
             mode={isInline? 'inline' : 'horizontal'}
@@ -56,20 +57,25 @@ function AppMenu({isInline=false}) {
               }}
             items={[
                 {
-                    label:'Trang chủ',
-                    key:'/'
+                    label:'Trang Chủ',
+                    key:'/',
+                    icon: <HomeOutlined />
                 },
                 {
                     label:'Profile',
-                    key:'/profile'
+                    key:'/profile',
+                    icon: <ProfileOutlined />
                 },
                 {
                     label:'Trang cá nhân',
-                    key:'/private'
+                    key:`/${user._id}`,
+                    icon: <UserOutlined />
                 },
                 {
                     label:'Đăng xuất',
-                    key: 'logout'
+                    key: 'logout',
+                    icon: <LogoutOutlined />,
+                    danger:true
                    
                 },
             ]}
