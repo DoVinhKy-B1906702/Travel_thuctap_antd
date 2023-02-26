@@ -65,3 +65,26 @@
     font-size: 1.8rem;
     color: var(--primary);
 }
+.btn-dropdown {
+    text-align: right !important;
+}
+.btn-deletePost, .btn-updatePost {
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.btn-deletePost {
+    color: var(--red);
+    &:hover {
+        color: var(--white--text);
+       
+        background: var(--red);
+    }
+}
+.btn-updatePost {
+    color: var(--blue);
+    &:hover {
+        color: var(--white--text);
+        
+        background: var(--blue);
+    }
+}

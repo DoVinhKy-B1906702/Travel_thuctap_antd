@@ -30,7 +30,7 @@ const MyCarousel = ({list, xs, xl, sm}) => {
                     <Image  
                     className={cx('layout-image')}
                     src="error"
-                    fallback={item}
+                    fallback={item.image || item}
                     />
                 </Card>
            ))}

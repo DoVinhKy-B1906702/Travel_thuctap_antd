@@ -103,7 +103,7 @@ const PostContextProvider = ({children}) => {
                     type: DELETE_POST_SUCCESS,
                     payload: postId
                 })
-                
+                return response.data
             }
         } catch (error) {
             console.log(error)

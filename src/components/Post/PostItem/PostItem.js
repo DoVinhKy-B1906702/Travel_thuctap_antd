@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import { Row, Col, Tooltip } from 'antd';
+import { Row, Col, Tooltip, Dropdown, Space, Typography, message } from 'antd';
 import classNames from 'classnames/bind'
 import styles from './PostItem.module.scss';
 
@@ -8,17 +8,59 @@ import 'moment/locale/vi';
 import { AuthContext } from '../../../context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+
 import { faFlagCheckered, faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import MyCarousel from '../../Carousel/MyCarousel';
 import CardUser from '../../CardUser/CardUser';
 import CommentsList from '../../Comments/CommentsList/CommentsList';
 import CommentForm from '../../Comments/CommentForm/CommentForm';
 import LikeForm from '../../Like/LikeForm/LikeForm';
+import { DeleteOutlined, DownOutlined, EditOutlined } from '@ant-design/icons';
+import { PostContext } from '../../../context/PostContext';
 
 const cx = classNames.bind(styles);
 
+
 const PostItem = ({post}) => {
   const {authState: {user}} = useContext(AuthContext);
+  const {deletePost} = useContext(PostContext)
+  const handleDeletePost = async () => {
+    try {
+        const deletedPost = await deletePost(post._id);
+        if (deletedPost.success) {
+            message.success('Đã xóa thành công bài viết này !!!')
+        }
+      console.log('deleted: ', post._id)
+    } catch (error) {
+      
+    }
+  }
+  const handleUpdatePost = () => {
+    console.log('updated: ', post._id)
+  }
+
+  const items = [
+    {
+      key: '1',
+      label: (
+          <div className={cx('btn-deletePost')} onClick={handleDeletePost}>
+            Delete <DeleteOutlined />
+          </div>
+      )
+     
+    },
+    {
+      key: '2',
+      label: (
+          <div className={cx('btn-updatePost')} onClick={handleUpdatePost}>
+            Update <EditOutlined />
+          </div>
+      )
+      
+    },
+    
+  ];
+ 
   
   return (
     <div >
@@ -26,7 +68,28 @@ const PostItem = ({post}) => {
        
        <Col  xs={20} xl={12} sm={16} >
        <div className={cx('layout')}>
+          {post.user._id === user._id &&
+
+           <div className={cx('btn-dropdown')}>
+              <Dropdown
+              
+                menu={{
+                  items,
+                  selectable: true,
+                  
+                }}
+              >
+                <Typography.Link>
+                  <Space>
+                    Options
+                    <DownOutlined />
+                  </Space>
+                </Typography.Link>
+              </Dropdown>
+           </div>
+          }
          <div className={cx('info')}>
+          
          <div >
            <img  className={cx('info-image')} src={post.user.image ? post.user.image : user.image } alt='avatar' />
          </div>
