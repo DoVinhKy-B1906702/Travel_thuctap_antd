@@ -8,7 +8,8 @@ import axios from 'axios';
 import { AuthContext } from './AuthContext';
 //const type
 import { POSTS_LOADED_FAIL, POSTS_LOADED_SUCCESS, POSTS_PRIVATE_LOADED_SUCCESS,
-    POSTS_PRIVATE_LOADED_FAIL, CREATE_POST_SUCCESS, DELETE_POST_SUCCESS, UPDATE_POST_SUCCESS, FIND_POST, POST_COMMENT} from './constanst';
+    POSTS_PRIVATE_LOADED_FAIL, CREATE_POST_SUCCESS, DELETE_POST_SUCCESS, UPDATE_POST_SUCCESS, FIND_POST, POST_COMMENT,
+DELETE_COMMENT} from './constanst';
 
 export const  PostContext = createContext();
 
@@ -154,6 +155,23 @@ const PostContextProvider = ({children}) => {
             : { success: false, message: 'Server error' }
         }
     }
+     // delete a comment
+     const deleteComment = async (postId, commentId) => {
+        try {
+            const response = await axios.delete(`${API}/posts/comment/${postId}?id=${commentId}`)
+            if (response.data.success) {
+                dispatch({
+                    type:DELETE_COMMENT,
+                    payload: {postId,commentId}
+                })
+                return response.data
+            }
+        } catch (error) {
+            return error.response.data
+            ? error.response.data
+            : { success: false, message: 'Server error' }
+        }
+    }
     
     
 
@@ -169,6 +187,7 @@ const PostContextProvider = ({children}) => {
         updatePost,
         findPost,
         postComment,
+        deleteComment,
         avatarDefault, setAvatarDefault
         // showAddPostModal, setShowAddPostModal, 
         // showToast, setShowToast,

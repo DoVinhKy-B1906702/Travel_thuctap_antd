@@ -52,6 +52,7 @@ const Avatar = () => {
     }
     const handleUpdateImage = async (e) => {
         e.preventDefault();
+        setShowUpdateAvatar(false);
         try {
                 const formData = new FormData();
                 formData.append('image',file);
@@ -74,7 +75,8 @@ const Avatar = () => {
                 console.log(response);
                 if (response.success) {
                     setShowAlert(true);
-                    setFile(null)
+                    
+                    setFile(null);
                     setShowDescription({
                       type: 'success',
                       message: 'Đã cập nhật thành công',
@@ -106,15 +108,7 @@ const Avatar = () => {
             <input type='file' id='image' className={cx('input-file')} name='image' onChange={handleChangeAvatar} />
           </div>
           
-          <div>
-            {showAlert && 
-              <Alert
-                type={showDescription.type}
-                message={showDescription.message}
-                description={showDescription.description}
-              />
-            }
-          </div>
+         
           <div className={cx('btn-update-done')}>
             <button onClick={handleCloseUpdate} className={cx('btn-cancel')} >Hủy</button>
             <button onClick={handleUpdateImage} className={cx('btn-done')} type='submit' >Xong</button>
@@ -136,7 +130,15 @@ const Avatar = () => {
         </div>
        
        {showUpdateAvatar ? btnDone : btnUpdate }
-        
+       <div>
+            {showAlert && 
+              <Alert
+                type={showDescription.type}
+                message={showDescription.message}
+                description={showDescription.description}
+              />
+            }
+        </div>
     </div>
   
   )

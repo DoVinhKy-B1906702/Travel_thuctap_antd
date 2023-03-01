@@ -1,6 +1,7 @@
 .info {
     display: flex;
     margin: 10px 0;
+    
 }
 .info-image {
     width: 50px;
@@ -35,6 +36,46 @@
     max-width: 35vw;
 }
 .comment-layout {
+   display: flex;
+   align-items: center;
+}
+.comment-background {
     background: var(--carousel);
     border-radius: 10px;
+   
+    
+
+}
+
+// .options-comment {
+ 
+ 
+   
+// }
+.options-icon {
+    color: var(--carousel);
+    font-size: 2rem;
+    font-weight: 800;
+}
+//btn
+.btn-deletePost, .btn-updatePost {
+    padding: 8px 24px;
+    font-size: 2rem;
+    border-radius: 4px;
+}
+.btn-deletePost {
+    color: var(--red);
+    &:hover {
+        color: var(--white--text);
+       
+        background: var(--red);
+    }
+}
+.btn-updatePost {
+    color: var(--blue);
+    &:hover {
+        color: var(--white--text);
+        
+        background: var(--blue);
+    }
 }

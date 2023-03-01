@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import classNames from 'classnames/bind'
 import styles from './LikeForm.module.scss';
-import { message } from 'antd';
+import { message, Popover } from 'antd';
 import Icon ,{ HeartFilled } from '@ant-design/icons';
 import { API } from '../../../context/constanst';
 import { AuthContext } from '../../../context/AuthContext';
 import axios from 'axios';
+import UserLikes from '../UserLikes/UserLikes';
 
 
 const cx = classNames.bind(styles);
@@ -58,13 +59,15 @@ const LikeForm = ({postId}) => {
     
     // setStatusLiked(status)
     // console.log(status);
-
+    
     // setStatusLiked(() => allLikes.some(like => like.user._id === user._id ));
    
   return (
     <div>
         <div className={cx('total-likes')}>
-           <span >{allLikes.length}</span> 
+            <Popover title='Người dùng đã like !!!' content={<UserLikes users={allLikes} />}>
+                <span className={cx('number-likes')} >{allLikes.length}</span>
+            </Popover>
         </div>
         <div className={cx('background-heart')} >
            <Icon  onClick={onFinish} className={statusLiked ? cx('heart-btn') : cx('no-heart-btn')}   component={HeartFilled} />

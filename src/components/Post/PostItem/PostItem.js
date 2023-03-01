@@ -1,5 +1,5 @@
-import React, {useContext} from 'react'
-import { Row, Col, Tooltip, Dropdown, Space, Typography, message } from 'antd';
+import React, {useContext, useState} from 'react'
+import { Row, Col, Tooltip, Dropdown, Space, Typography, message, Modal} from 'antd';
 import classNames from 'classnames/bind'
 import styles from './PostItem.module.scss';
 
@@ -23,12 +23,27 @@ const cx = classNames.bind(styles);
 
 const PostItem = ({post}) => {
   const {authState: {user}} = useContext(AuthContext);
-  const {deletePost} = useContext(PostContext)
+  const {deletePost} = useContext(PostContext);
+
+  const [openModalDelete, setOpenModalDelete] = useState(false) ;
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  const showModal = () => {
+    setOpenModalDelete(true);
+  }
+  const closeModal = () => {
+    setOpenModalDelete(false)
+  }
   const handleDeletePost = async () => {
     try {
+        setConfirmLoading(true);
         const deletedPost = await deletePost(post._id);
         if (deletedPost.success) {
-            message.success('Đã xóa thành công bài viết này !!!')
+          message.success('Đã xóa thành công bài viết này !!!')
+            setTimeout(() => {
+              setOpenModalDelete(false);
+              setConfirmLoading(false);
+             
+            }, 4000);
         }
       console.log('deleted: ', post._id)
     } catch (error) {
@@ -43,9 +58,19 @@ const PostItem = ({post}) => {
     {
       key: '1',
       label: (
-          <div className={cx('btn-deletePost')} onClick={handleDeletePost}>
-            Delete <DeleteOutlined />
+          <div className={cx('btn-deletePost')} >
+            <div onClick={showModal}>Delete <DeleteOutlined /></div> 
+            <Modal
+              title='Bạn có muốn xóa bài viết này không ?'
+              open={openModalDelete}
+              onOk={handleDeletePost}
+              onCancel={closeModal}
+              confirmLoading={confirmLoading}
+            >
+             
+            </Modal>
           </div>
+          
       )
      
     },
@@ -131,7 +156,7 @@ const PostItem = ({post}) => {
               <LikeForm postId={post._id} />
            </div>
            <div>
-            <CommentsList listComments={post.comments} />
+            <CommentsList listComments={post.comments} postID={post._id} />
            </div>
            <CommentForm id={post._id} />
          </div>

@@ -31,3 +31,14 @@
         border-bottom: 1px solid var(--pink);
     }
 } 
+/// spin 
+.spin-loading {
+    background: var(--black);
+    width: 100vw;
+    height: 100vh;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+
+}

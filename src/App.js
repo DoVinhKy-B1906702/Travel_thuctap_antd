@@ -17,9 +17,10 @@ import UpdateUserModal from "./components/Modal/UpdateUserModal/UpdateUserModal"
 import TestDate from "./components/Test/TestDate";
 
 import Footer from "./components/Footer/Footer";
-import TestButton from "./components/Test/TestButton";
+
 import PageNotFound from "./views/PageNotFound/PageNotFound";
 import ProfilePublic from "./components/ProfilePublic/ProfilePublic";
+
 
 
 
@@ -34,7 +35,7 @@ function App() {
               {/* <Route path='/private' element={<ProtectedRoute> <PrivatePage /> </ProtectedRoute>}  /> */}
               {/** test Component */}
               <Route path='/testdate' element={<TestDate />}  />
-              <Route path='/testbtn' element={<TestButton />}  />
+              
               
 
               <Route path='/update' element={<UpdateUserModal />}  />

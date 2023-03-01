@@ -7,7 +7,8 @@ import {
     DELETE_POST_SUCCESS, 
     UPDATE_POST_SUCCESS,
     FIND_POST,
-    POST_COMMENT
+    POST_COMMENT,
+    DELETE_COMMENT
 } from '../context/constanst';
 
 
@@ -82,6 +83,25 @@ export const postReducer = (state, action) => {
                 ...state,
                 posts: newComment,
                 postsPrivate: newCommentProfile
+            }
+        case DELETE_COMMENT:
+            const newPost = state.posts.map(post =>  {
+                    if(post._id === payload.postId) {
+                        const newComments = post.comments.filter(comment => comment._id !== payload.commentId);
+                      return {
+                        ...post,
+                        ...post.comments = newComments
+                      }
+                    } else {
+                        return post
+                    }
+                    
+                
+            }
+            )
+            return {
+                ...state,
+                posts: newPost
             }
         default:
             return state

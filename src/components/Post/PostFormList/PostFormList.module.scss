@@ -61,5 +61,10 @@
 .input-files {
     display: none;
 }
-
+// loading
+.spin-loading {
+    background: var(--black);
+    width: 100vw;
+    height: 100vh;
+}
 

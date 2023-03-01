@@ -6,7 +6,7 @@ import styles from './ProfilePublic.module.scss';
 
 import { API } from '../../context/constanst';
 import axios from 'axios';
-import { Row,Col, Image, message, Typography } from 'antd';
+import { Row,Col, Image, message, Typography, Spin } from 'antd';
 
 // import PageNotFound from '../../views/PageNotFound/PageNotFound';
 import { AuthContext } from '../../context/AuthContext';
@@ -23,6 +23,8 @@ const ProfilePublic = () => {
     const {authState: {user}} = useContext(AuthContext);
     const {dispatch} = useContext(PostContext)
 
+    // loading
+    const [loading, setLoading] = useState(false);
     const [info, setInfo] = useState({});
     const [lengthPosts, setLengthPosts] = useState({});
     
@@ -32,6 +34,7 @@ const ProfilePublic = () => {
         async function fetchAPIUser() {
             try {
                 const res = await axios.get(`${API}/search/searchyourID?q=${searchId}`);
+                setLoading(true)
                 console.log(res);
                     setInfo(res.data.user);
                     setLengthPosts(res.data.posts)
@@ -41,6 +44,9 @@ const ProfilePublic = () => {
                         type: POSTS_PRIVATE_LOADED_SUCCESS,
                         payload: res.data.posts
                     })
+                    setTimeout(() => {
+                        setLoading(false)
+                    }, 1000)
                 } else {
                     dispatch({
                         type: POSTS_PRIVATE_LOADED_FAIL
@@ -61,6 +67,8 @@ const ProfilePublic = () => {
     // );
   return (
     <div className={cx('layout')}>
+        {loading ? <Spin className={cx('spin-loading')} spinning={loading}></Spin> :
+        <div>
         <Row justify='center' className={cx('layout-profile')}>
             <Col xs={12} xl={6} sm={22}>
                 <Image
@@ -98,8 +106,8 @@ const ProfilePublic = () => {
 
         }
         <PostListPrivate />
-    
-       
+        </div>
+       }
     </div>
   )
 }
