@@ -1,11 +1,11 @@
-import {createContext, useReducer, useState, useContext } from 'react';
+import {createContext, useReducer, useState } from 'react';
 
 import {postReducer} from '../reducers/postReducer';
 
 import { API } from './constanst';
 
 import axios from 'axios';
-import { AuthContext } from './AuthContext';
+
 //const type
 import { POSTS_LOADED_FAIL, POSTS_LOADED_SUCCESS, POSTS_PRIVATE_LOADED_SUCCESS,
     POSTS_PRIVATE_LOADED_FAIL, CREATE_POST_SUCCESS, DELETE_POST_SUCCESS, UPDATE_POST_SUCCESS, FIND_POST, POST_COMMENT,
@@ -16,7 +16,7 @@ export const  PostContext = createContext();
 
 const PostContextProvider = ({children}) => {
     // state
-    const {authState: {user}} = useContext(AuthContext)
+    // const {authState: {user}} = useContext(AuthContext)
 
     const [postState, dispatch] = useReducer(postReducer, {
         post: null,
@@ -25,11 +25,11 @@ const PostContextProvider = ({children}) => {
         postsLoading: true
     });
     const [ avatarDefault, setAvatarDefault] = useState([]); 
-    const [showToast, setShowToast] = useState({
-        show: false,
-        message: '',
-        type: null
-    });
+    // const [showToast, setShowToast] = useState({
+    //     show: false,
+    //     message: '',
+    //     type: null
+    // });
 
     // Get all posts    
     const getPosts = async (limit) => {

@@ -7,7 +7,7 @@ import { Button } from 'antd';
 
 
 const cx = classNames.bind(styles);
-const CommentsList = ({listComments, postID}) => {
+const CommentsList = ({listComments, postID, postUser}) => {
   const [loadMore, setLoadMore] = useState(false);
   const handleLoadMore = () => {
     setLoadMore(!loadMore)
@@ -18,9 +18,9 @@ const CommentsList = ({listComments, postID}) => {
         <div>Bình luận{` (${listComments.length})`}</div>
         {loadMore &&
         
-        <div>
+        <div className={cx('list-comment')}>
             {listComments.map(item => (
-                <CommentItem key={item._id} postID={postID} comment={item} />
+                <CommentItem key={item._id} postID={postID} comment={item} postUser={postUser} />
             ))}
         </div>
         }

@@ -1,0 +1,50 @@
+.background {
+    background: var(--background--primary--lighter);
+    display: flex;
+    width: 100%;
+    margin: 4px 0;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.input-search {
+    outline: none;
+    border: none;
+    background: none;
+    width: 100%;
+   
+}
+.search-item, .search-icon, .search-icon-value {
+    margin: 4px;
+}
+.search-icon {
+    width: 10%;
+    color: var(--carousel);
+}
+.search-icon-value {
+    width: 10%;
+    color: var(--white--text);
+}
+.search-item {
+    width: 100%;
+}
+// spinner
+.btn-load-refresh {
+    margin: 4px 0;
+} 
+
+.clear {
+    cursor: pointer;
+}
+.loading {
+    animation: spinner 0.5s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(180deg);
+    }
+}

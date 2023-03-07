@@ -11,6 +11,7 @@ import Avatar from '../../components/Profile/Avatar/Avatar';
 
 import UpdateUserModal from '../../components/Modal/UpdateUserModal/UpdateUserModal';
 
+
 const cx = classNames.bind(styles);
 
 const Profile = () => {
@@ -18,18 +19,22 @@ const {showModalUpdateUser} = useContext(AuthContext);
  
 
   return (
-    <Row justify="center" className={cx('layout')}>
-    <Col xs={20} xl={8} sm={10} className={cx('layout-item')} >
-       
-        <Info />
+    <div>
 
-    </Col>
-    <Col xs={20} xl={8} sm={10} className={cx('layout-item')}>
-        <Avatar />
-    </Col>
-    {showModalUpdateUser && <UpdateUserModal />}
-   
-    </Row>
+      <Row justify="center" className={cx('layout')}>
+        <Col xs={20} xl={8} sm={10} className={cx('layout-item')} >
+          
+            <Info />
+
+        </Col>
+        <Col xs={20} xl={8} sm={10} className={cx('layout-item')}>
+            <Avatar />
+        </Col>
+        {showModalUpdateUser && <UpdateUserModal />}
+    
+      </Row>
+    
+    </div>
   )
 }
 

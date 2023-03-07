@@ -7,7 +7,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../../context/AuthContext';
-import { HomeOutlined, LogoutOutlined, ProfileOutlined, UserOutlined } from '@ant-design/icons';
+import { HomeOutlined, LogoutOutlined, ProfileOutlined, UserOutlined} from '@ant-design/icons';
 
 
 const cx = classNames.bind(styles);
@@ -45,43 +45,47 @@ const NavbarMenuUser = () => {
 function AppMenu({isInline=false}) {
     const {logOutUser, authState: {user}} = useContext(AuthContext)
     return (
-        <Menu
-            mode={isInline? 'inline' : 'horizontal'}
-            onClick={({key}) => {
-                if (key === 'logout') {
-                    logOutUser(); 
-                } else {
-                    return navigate(key)
-                }
-                
-              }}
-            items={[
-                {
-                    label:'Trang Chủ',
-                    key:'/',
-                    icon: <HomeOutlined />
-                },
-                {
-                    label:'Profile',
-                    key:'/profile',
-                    icon: <ProfileOutlined />
-                },
-                {
-                    label:'Trang cá nhân',
-                    key:`/${user.yourId}`,
-                    icon: <UserOutlined />
-                },
-                {
-                    label:'Đăng xuất',
-                    key: 'logout',
-                    icon: <LogoutOutlined />,
-                    danger:true
-                   
-                },
-            ]}
-        >
+         
+                    <Menu
+                        mode={isInline? 'inline' : 'horizontal'}
+                        onClick={({key}) => {
+                            if (key === 'logout') {
+                                logOutUser(); 
+                            } else {
+                                return navigate(key)
+                            }
+                            
+                        }}
+                        items={[
+                            {
+                                label:'Trang Chủ',
+                                key:'/',
+                                icon: <HomeOutlined />
+                            },
+                            {
+                                label:'Profile',
+                                key:'/profile',
+                                icon: <ProfileOutlined />
+                            },
+                            {
+                                label:'Trang cá nhân',
+                                key:`/${user.yourId}`,
+                                icon: <UserOutlined />
+                            },
+                            {
+                                label:'Đăng xuất',
+                                key: 'logout',
+                                icon: <LogoutOutlined />,
+                                danger:true
+                            
+                            },
+                        ]}
+                    >
 
-        </Menu>
+                    </Menu>
+          
+        
+      
     )
 }
 

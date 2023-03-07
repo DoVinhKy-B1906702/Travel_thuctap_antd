@@ -58,24 +58,15 @@
     font-weight: 800;
 }
 //btn
-.btn-deletePost, .btn-updatePost {
+
+.btn-deleteComment {
+    color: var(--red);
     padding: 8px 24px;
     font-size: 2rem;
     border-radius: 4px;
-}
-.btn-deletePost {
-    color: var(--red);
     &:hover {
         color: var(--white--text);
        
         background: var(--red);
-    }
-}
-.btn-updatePost {
-    color: var(--blue);
-    &:hover {
-        color: var(--white--text);
-        
-        background: var(--blue);
     }
 }

@@ -20,7 +20,7 @@ const PostList = ({limit}) => {
   return (
     <div>
       {posts.map(post => (
-         <PostItem key={post._id} post={post} />
+         <PostItem key={post._id} post={post}  />
       ))}
        {/* {newArray.map(post => (
          <PostItem key={post._id} post={post} />

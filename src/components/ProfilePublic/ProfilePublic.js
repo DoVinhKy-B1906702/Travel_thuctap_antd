@@ -17,6 +17,7 @@ import PostListPrivate from '../Post/PostListPrivate/PostListPrivate';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 
+
 const cx = classNames.bind(styles);
 const ProfilePublic = () => {
     const {searchId} = useParams();  
@@ -88,7 +89,7 @@ const ProfilePublic = () => {
                     : 
                     (
                         <div className={cx('layout-gender')}>
-                            <span>Giới tinh:</span>
+                            <span>Giới tính:</span>
                             <FontAwesomeIcon className={cx('icon-gender-female')} icon={faVenus} />
                             
                         </div>
@@ -96,7 +97,7 @@ const ProfilePublic = () => {
                 }
                 <div>Có {lengthPosts.length} bài viết</div>
                 <div>Link trang cá nhân</div>
-                <Typography.Text copyable className={cx('copy-link')}>{`http://localhost:3000/${info.yourId}`}</Typography.Text>
+                <Typography.Text copyable className={cx('copy-link')}>{`/${info.yourId}`}</Typography.Text>
             </Col>
         </Row>
         {(info._id === user._id) &&
@@ -108,6 +109,7 @@ const ProfilePublic = () => {
         <PostListPrivate />
         </div>
        }
+      
     </div>
   )
 }

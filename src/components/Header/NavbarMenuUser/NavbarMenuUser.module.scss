@@ -7,8 +7,13 @@
 .menuIcon {
     display: none;
 }
-
-
+.full-header {
+    display: flex;
+   
+}
+.header-logo {
+    color: var(--black) !important;
+}
 @media only screen and (min-width: 320px) and (max-width: 420px){
     .menuIcon {
         display: block;

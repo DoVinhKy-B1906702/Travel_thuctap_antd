@@ -10,6 +10,7 @@ import { PostContext } from '../../context/PostContext';
 import PostFormList from '../../components/Post/PostFormList/PostFormList';
 
 
+
 const cx = classNames.bind(styles);
 const Home = () => {
   const { postState: {posts}} = useContext(PostContext);
@@ -41,6 +42,7 @@ const Home = () => {
           <div className={cx('load-more')} onClick={handleIncreaseLimit}>Xem thêm</div>
         </Col>
       </Row>
+  
     </div>
     
     

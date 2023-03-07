@@ -1,26 +1,12 @@
-.icon {
-    background: var(--background--primary--lighter);
-    padding: 8px;
-    margin: 4px;
-    font-size: 2rem;
+.logo {
+    width: 50px;
+    height: 50px;
+    background: var(--black);
 }
-.menuIcon {
-    display: none;
+.btn {
+    text-align: right;
+    margin: 5px 0;
 }
-
-
-@media only screen and (min-width: 320px) and (max-width: 420px){
-    .menuIcon {
-        display: block;
-    }
-    .menu-mobile {
-        max-width: 80vw;
-        min-width: 70vw;
-    }
-    .header-menu {
-        display: none;
-    }
-}
-@media only screen and (min-width: 590px) and (max-width: 2000px){
-   
+.btn-login {
+    margin-right: 10px;
 }

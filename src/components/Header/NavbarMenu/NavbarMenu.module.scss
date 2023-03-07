@@ -1,8 +1,11 @@
 .header-navbar-menu {
+    // display: flex;
+    // justify-content: space-between;
     position: fixed;
     width: 100%;
     z-index: 100;
     background: var(--white--text);
     // background: var(--background--primary);
     padding: 10px 0;
+    // max-width: 1200px;
 }

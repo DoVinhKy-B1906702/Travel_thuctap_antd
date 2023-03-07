@@ -1,77 +1,36 @@
-import React, { useState } from 'react'
+import React from 'react'
 import classNames from 'classnames/bind'
 import styles from './NavbarMenuWithoutUser.module.scss';
-import { Drawer, Menu } from 'antd';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
-import { HomeOutlined, LoginOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import { Button, Col, Row } from 'antd';
+import { Link } from 'react-router-dom';
 
-
+import fyl from '../../../assets/logofyl.png';
 
 
 const cx = classNames.bind(styles);
-let navigate;
+
 const NavbarMenuWithoutUser = () => {
-    
-    const [openMenu, setOpenMenu] = useState(false);
-    navigate = useNavigate();
-    return (
-    <div>
-        <div className={cx('menuIcon')} >
-            <FontAwesomeIcon 
-                className={cx('icon')}  
-                icon={faBars}
-                onClick={() => setOpenMenu(true)} 
-            />
-        </div>
-        <span className={cx('header-menu')}>
-            <AppMenu />
-        </span>
-        
-        <Drawer 
-            placement='left'
-            open={openMenu}
-            onClose={() => setOpenMenu(false)}
-            closable={false}
-            className={cx('menu-mobile')}
-        >
-            <AppMenu isInline />
-        </Drawer>
-    </div>
-  )
-}
 
-function AppMenu({isInline=false}) {
+
     
     return (
-        <Menu
-            mode={isInline? 'inline' : 'horizontal'}
-            onClick={({key}) => {
-        
-                return navigate(key)
-              }}
-            items={[
-                {
-                    label:'Trang chủ',
-                    key:'/',
-                    icon: <HomeOutlined />
-                   },
-                   {
-                    label:'Đăng nhập',
-                    key:'/login',
-                    icon: <LoginOutlined />
-                   },
-                   {
-                    label:'Đăng Ký',
-                    key:'/register',
-                    icon: <PlusCircleOutlined />
-                   }
-               
-            ]}
-        >
-
-        </Menu>
+      <Row justify='center'>
+        <Col xs={4} sm={4} xl={12}>
+            <Link>
+                <img src={fyl} className={cx('logo')}  alt='Logo' />
+            </Link>
+        </Col>
+        <Col  xs={20} sm={20} xl={4}>
+            <div className={cx('btn')}>
+                <Link to='/login' className={cx('btn-login')}>
+                    <Button>Đăng nhập</Button>
+                </Link>
+                <Link to='/register'>
+                    <Button type='primary'>Đăng ký</Button>
+                </Link>
+            </div>
+        </Col>
+      </Row>
     )
 }
 

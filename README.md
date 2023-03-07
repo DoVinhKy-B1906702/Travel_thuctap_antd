@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+@ant-design/icons and Fontawesome
+antd
+axios
+classnames
+moment
+react
+react-router-dom
+sass
 
-## Available Scripts
+## using useContext and useReducer
 
-In the project directory, you can run:
+having 2 main store: authState and postState
 
-### `npm start`
+authState {
+isAuthenticated,
+user,
+authloading
+}
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+postState {
+posts: [],
+postsPrivate:[],
+}
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## using sass and classnames
 
-### `npm test`
+maintain css and format content easily
+classnames is used to bind name of class css when app is built
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## using ant design
 
-### `npm run build`
+responsive
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## using axios
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+working with API
+syntax simple
+based on the XMLHttpRequest
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## moment
 
-### `npm run eject`
+format time
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## react-router-dom
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+routing path
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### MAIN FEATURE
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Login and Register
 
-## Learn More
+#### Update information of user and avatar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Render and Show information of each user
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Like and Comment
 
-### Code Splitting
+#### Render and show amount of like and comment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Create post with multiples images
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Delete comment and post, unlike post

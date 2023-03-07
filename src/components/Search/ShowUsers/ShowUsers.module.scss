@@ -1,0 +1,33 @@
+.list-user {
+    max-height: 40vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    min-width: 15vw;
+}
+.list-user-item {
+    &:hover {
+        background: var(--gray);
+    }
+}
+
+.link {
+    cursor: pointer;
+}
+.gender-male, .gender-female {
+    font-size: 2rem;
+}
+.gender-male {
+    color: var(--blue);
+}
+.gender-female {
+    color: var(--pink);
+}
+@media only screen and (min-width: 320px) and (max-width: 420px){
+    .list-user {
+        min-width: 80vw;
+        max-height: 40vh;
+        
+    }
+    
+   
+}

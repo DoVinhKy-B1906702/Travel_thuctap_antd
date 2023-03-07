@@ -8,6 +8,7 @@ import { Navigate } from 'react-router-dom'
 
 
 
+
 const Auth = ({authRoute}) => {
     const {authState: {authLoading, isAuthenticated}} = useContext(AuthContext);
 
@@ -37,6 +38,7 @@ const Auth = ({authRoute}) => {
   return (
         <div>
             {body}
+           
         </div>
             
         

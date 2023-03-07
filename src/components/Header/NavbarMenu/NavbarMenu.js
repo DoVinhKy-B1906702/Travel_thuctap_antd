@@ -8,6 +8,8 @@ import { AuthContext } from '../../../context/AuthContext';
 
 import NavbarMenuUser from '../NavbarMenuUser/NavbarMenuUser';
 import NavbarMenuWithoutUser from '../NavbarMenuWithoutUser/NavbarMenuWithoutUser';
+import { Col, Row } from 'antd';
+import SearchUsers from '../../Search/SearchUsers/SearchUsers';
 const cx = classNames.bind(styles);
 
 const NavbarMenu = () => {
@@ -18,9 +20,21 @@ const NavbarMenu = () => {
 
   return (
     <div className={cx('header-navbar-menu')}>
-       {isAuthenticated ? <NavbarMenuUser /> : <NavbarMenuWithoutUser />
-       }
-
+      { isAuthenticated ?
+      <Row justify='center'>
+        <Col xl={16} xs={8} sm={12}>
+          <div> <NavbarMenuUser /> 
+        </div>
+        </Col>
+        
+        <Col xl={4} xs={16} sm={12}>
+          
+            <SearchUsers />
+          
+        </Col>
+      </Row> : <NavbarMenuWithoutUser />
+     }
+      
     </div>
    
   )

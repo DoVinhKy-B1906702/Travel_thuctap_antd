@@ -17,7 +17,7 @@ const MyCarousel = ({list, xs, xl, sm}) => {
   // };
   return (
     <Row justify="center"  className={cx('layout-slide')}>
-        <Col xs={xs ? xs : 20} xl={xl ? xl : 8} sm={sm ? sm : 10}>
+        <Col xs={xs ? xs : 23} xl={xl ? xl : 8} sm={sm ? sm : 10}>
           <Carousel effect='fade'>
            {list.map((item, index)  => (
                 <Card key={index} className={cx('layout-card')} >

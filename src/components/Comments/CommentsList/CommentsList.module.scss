@@ -12,3 +12,8 @@
     min-width: 25vw; 
     margin: 10px 0;
 }
+.list-comment {
+    max-height: 40vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}

@@ -24,6 +24,8 @@ import ProfilePublic from "./components/ProfilePublic/ProfilePublic";
 
 
 
+
+
 function App() {
   return (
     <AuthContextProvider>
@@ -32,24 +34,22 @@ function App() {
               <NavbarMenu />
               <Routes>
               <Route path='/' element={<ProtectedRoute> <Home /> </ProtectedRoute> }  />
-              {/* <Route path='/private' element={<ProtectedRoute> <PrivatePage /> </ProtectedRoute>}  /> */}
               {/** test Component */}
               <Route path='/testdate' element={<TestDate />}  />
-              
-              
-
-              <Route path='/update' element={<UpdateUserModal />}  />
+            
               <Route path='/login' element={<Auth  authRoute='login' />}  />
               <Route path='/register' element={<Auth  authRoute='register' />}  />
                
 
               <Route path='/profile' element={<ProtectedRoute> <Profile /> </ProtectedRoute>} />
+              <Route path='/update' element={<UpdateUserModal />}  />
               <Route path='/:searchId' element={<ProtectedRoute><ProfilePublic /></ProtectedRoute>  }  />
               <Route path='*' element={<PageNotFound />}  />
                 {/* <Route path='/about' element={<ProtectedRoute> <About /> </ProtectedRoute>} /> */}
               </Routes> 
               <Footer />
         </Router>
+       
       </PostContextProvider>
         
     </AuthContextProvider>

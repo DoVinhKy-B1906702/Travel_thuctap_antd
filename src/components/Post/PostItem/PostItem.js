@@ -58,6 +58,14 @@ const PostItem = ({post}) => {
     {
       key: '1',
       label: (
+          <div className={cx('btn-updatePost')} onClick={handleUpdatePost}>
+            Update <EditOutlined />
+          </div>
+      )
+      
+    }, {
+      key: '2',
+      label: (
           <div className={cx('btn-deletePost')} >
             <div onClick={showModal}>Delete <DeleteOutlined /></div> 
             <Modal
@@ -73,16 +81,7 @@ const PostItem = ({post}) => {
           
       )
      
-    },
-    {
-      key: '2',
-      label: (
-          <div className={cx('btn-updatePost')} onClick={handleUpdatePost}>
-            Update <EditOutlined />
-          </div>
-      )
-      
-    },
+    }
     
   ];
  
@@ -91,7 +90,7 @@ const PostItem = ({post}) => {
     <div >
       <Row justify="center">
        
-       <Col  xs={20} xl={12} sm={16} >
+       <Col  xs={24} xl={12} sm={18} >
        <div className={cx('layout')}>
           {post.user._id === user._id &&
 
@@ -126,7 +125,7 @@ const PostItem = ({post}) => {
              
            </div>
            <div className={cx('info-time')}>
-             {moment(post.createdAt).format('LLL')}
+            {moment(post.createdAt).startOf(post.createdAt).fromNow()}
            </div>
          </div>
          </div>
@@ -156,7 +155,7 @@ const PostItem = ({post}) => {
               <LikeForm postId={post._id} />
            </div>
            <div>
-            <CommentsList listComments={post.comments} postID={post._id} />
+            <CommentsList listComments={post.comments} postID={post._id} postUser={post.user} />
            </div>
            <CommentForm id={post._id} />
          </div>

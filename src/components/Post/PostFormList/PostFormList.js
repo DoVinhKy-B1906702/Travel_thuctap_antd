@@ -92,7 +92,7 @@ const PostFormList = () => {
               setTimeout(() => {
                 setLoading(false);
                 message.success('Bài viết đã được đăng !!!');
-              }, 3000)
+              }, 1000)
               
             }
             console.log(res)

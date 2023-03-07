@@ -98,10 +98,26 @@ export const postReducer = (state, action) => {
                     
                 
             }
-            )
+            );
+            const newPostPrivate = state.postsPrivate.map(post =>  {
+                if(post._id === payload.postId) {
+                    const newComments = post.comments.filter(comment => comment._id !== payload.commentId);
+                  return {
+                    ...post,
+                    ...post.comments = newComments
+                  }
+                } else {
+                    return post
+                }
+                
+            
+        }
+        );
+
             return {
                 ...state,
-                posts: newPost
+                posts: newPost,
+                postsPrivate: newPostPrivate
             }
         default:
             return state
