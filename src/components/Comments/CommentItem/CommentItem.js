@@ -7,7 +7,7 @@ import 'moment/locale/vi';
 import { AuthContext } from '../../../context/AuthContext';
 import CardUser from '../../CardUser/CardUser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsis, faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsis} from '@fortawesome/free-solid-svg-icons';
 import { DeleteOutlined } from '@ant-design/icons';
 import { Dropdown, Modal, Space, Tooltip, Typography, message } from 'antd';
 import { PostContext } from '../../../context/PostContext';
@@ -78,22 +78,14 @@ const CommentItem = ({comment, postID, postUser}) => {
                 <div className={cx('comment-background')}>
 
                 <div >
-                    <Tooltip autoAdjustOverflow arrow overlayClassName={cx('overlay-tooltip')} color='#414346' title={<CardUser  info={comment} />}>
+                    <Tooltip trigger='click' overlayClassName={cx('overlay-tooltip')} color='#414346' title={<CardUser  info={comment} />}>
                    <span className={cx('info-name')}>  
                         {   comment.user.firstName ? `${comment.user.firstName} ${comment.user.lastName}` 
                         :
                             `${user.firstName} ${user.lastName}` 
                         }
                     </span>
-                    <span >
-                        {comment.user.gender || user.gender ?  (      
-                                <FontAwesomeIcon className={cx('icon-gender-male')} icon={faMars} />
-                        )
-                        : 
-                        (
-                                <FontAwesomeIcon className={cx('icon-gender-female')} icon={faVenus} />
-                    )
-                    }</span> 
+                  
                     </Tooltip>
                     
                 </div>

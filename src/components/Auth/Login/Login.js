@@ -14,11 +14,11 @@ const Login = () => {
   const [description, setDescription] = useState('');
 
   const onFinish = async (values) => {
-    console.log('Success:', values);
+    // console.log('Success:', values);
   
     try {
       const registerData = await loginUser(values);
-      console.log(registerData);
+      // console.log(registerData);
       if(!registerData.success) {
             setDescription(registerData.message)
             setShowAlert(true)

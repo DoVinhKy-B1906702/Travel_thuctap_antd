@@ -32,7 +32,7 @@ const UserLikes = ({users}) => {
             <List.Item>
                 <List.Item.Meta
                     avatar={<Avatar src={item.user.image ? item.user.image : user.image} />}
-                    title={<Link to={item.user.yourId}>{item.user.firstName ? `${item.user.firstName} ${item.user.lastName}` : `${user.firstName} ${user.lastName}` }</Link>}
+                    title={<Link to={`/${item.user.yourId}`}>{item.user.firstName ? `${item.user.firstName} ${item.user.lastName}` : `${user.firstName} ${user.lastName}` }</Link>}
                     description={moment(item.createdAt).format('LLL')}
                 />
             </List.Item>

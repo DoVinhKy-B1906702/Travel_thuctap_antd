@@ -65,7 +65,11 @@ const LikeForm = ({postId}) => {
   return (
     <div>
         <div className={cx('total-likes')}>
-            <Popover title='Người dùng đã like !!!' content={<UserLikes users={allLikes} />}>
+            <Popover 
+                title='Người dùng đã like !!!' 
+                content={<UserLikes users={allLikes} />}
+                trigger='click'
+            >
                 <span className={cx('number-likes')} >{allLikes.length}</span>
             </Popover>
         </div>

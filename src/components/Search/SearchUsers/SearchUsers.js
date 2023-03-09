@@ -8,7 +8,7 @@ import axios from 'axios';
 import ShowUsers from '../ShowUsers/ShowUsers';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { API } from '../../../context/constanst';
 
 const cx = classNames.bind(styles);
 const SearchUsers = () => {
@@ -31,7 +31,7 @@ const SearchUsers = () => {
 
       setLoading(true);
 
-      const result = await axios.get(`http://localhost:5000/search?q=${debounced}`);
+      const result = await axios.get(`${API}/search?q=${debounced}`);
       if(result.data.success) {
         setSearchResult(result.data.allUsers);
         setsearchLength(result.data.length)

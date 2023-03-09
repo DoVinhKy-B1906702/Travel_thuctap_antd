@@ -119,7 +119,7 @@ const PostItem = ({post}) => {
          </div>
          <div>
            <div className={cx('info-name')}>
-              <Tooltip autoAdjustOverflow arrow overlayClassName={cx('overlay-tooltip')} color='#414346' title={<CardUser info={post} />}>
+              <Tooltip trigger='click' overlayClassName={cx('overlay-tooltip')} color='#414346' title={<CardUser info={post} />}>
                 {post.user.firstName ? `${post.user.firstName} ${post.user.lastName}` : `${user.firstName} ${user.lastName}` }
               </Tooltip>
              

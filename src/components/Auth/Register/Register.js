@@ -19,14 +19,14 @@ const Register = () => {
     console.log('Success:', values);
     if ( values.password !== values.confirmPassword) {
       message.error('Sai mật khẩu rồi!!')
-      console.log('sai pass')
+      // console.log('sai pass')
 
       return
     }
 
     try {
       const registerData = await registerUser(values);
-      console.log(registerData);
+      // console.log(registerData);
       if (!registerData.success) {
           message.error(registerData.message)
       }

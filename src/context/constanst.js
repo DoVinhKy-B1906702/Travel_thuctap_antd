@@ -1,5 +1,5 @@
-export const API = process.env.NODE_ENV !== 'production' ? 'http://localhost:5000' : 'someURL';
-
+// export const API = 'https://backend-travel-thuctap.vercel.app';
+export const API = 'http://localhost:5000';
 export const LOCAL_STORAGE_TOKEN_NAME = 'learnMERN';
 
 export const SET_AUTH = 'SET_AUTH';
